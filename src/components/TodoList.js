@@ -3,10 +3,12 @@ import { inject, observer } from 'mobx-react'
 
 import Control from './Control'
 import Todos from './Todos'
+
+const LS_KEY = '_$lskey_'
 function TodoList(props) {
   return(
     <div className='todo-list'>
-      <Control  />
+      <Control/>
       <Todos></Todos>
     </div>
   )

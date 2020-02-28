@@ -9,19 +9,19 @@ class TodoStore {
   todos = [];
   get unComputedTodosCount() {
     return this.todos.filter(
-      todo => !todo.completed
+      todo => !todo.complete
     ).length;
   }
   // 这里 的 computed 属性 简直就和 vue 的一样，对立面的值进行缓存，
   // 当然，和 react:hook 中的 useMem 也一样就是了
   get completedTodo() {
     return this.todos.filter(
-      todo => todo.completed
+      todo => todo.complete
     )
   }
   get unCompletedTodo() {
     return this.todos.filter(
-      todo => !todo.completed
+      todo => !todo.complete
     )
   }
  
@@ -32,7 +32,7 @@ class TodoStore {
     }
     this.todos.push({
       task: task,
-      completed: false,
+      complete: false,
       id
     });
   }
@@ -40,8 +40,18 @@ class TodoStore {
     const index = this.todos.findIndex(todo => todo === task);
     this.todos.splice(index, 1)
   }
-  toggleTodo(task) {
-    task.completed = !task.completed
+  toggleTodo(id) {
+    // task.complete = !task.complete
+    console.log(id)
+    this.todos.map(todo => {
+      return todo.id === id
+        ? {
+          ...todo,
+          complete: !todo.complete,
+        }
+        : todo
+    })
+    
   }
 }
  
