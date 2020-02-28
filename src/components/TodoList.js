@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react'
-import { withRouter } from 'react-router-dom';
 
 import Control from './Control'
 import Todos from './Todos'
