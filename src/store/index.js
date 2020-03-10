@@ -40,17 +40,9 @@ class TodoStore {
     const index = this.todos.findIndex(todo => todo === task);
     this.todos.splice(index, 1)
   }
-  toggleTodo(id) {
-    // task.complete = !task.complete
-    console.log(id)
-    this.todos.map(todo => {
-      return todo.id === id
-        ? {
-          ...todo,
-          complete: !todo.complete,
-        }
-        : todo
-    })
+  toggleTodo(task) {
+    console.log(task)
+    task.complete = !task.complete
     
   }
 }
